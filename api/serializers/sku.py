@@ -4,9 +4,11 @@ from api.models import SKU
 
 
 class SKUSerializer(serializers.ModelSerializer):
-    name = serializers.CharField(source='model_sneaker.model_name')  # Получаем имя кроссовок из связанных моделей
-    brand = serializers.CharField(source='model_sneaker.brand.brand_name')  # Предполагается, что в модели Sneaker есть связь с Brand
+    name = serializers.CharField(source='model_sneaker.name')
+    brand = serializers.CharField(source='model_sneaker.brand.name')
+    color  = serializers.CharField(source='model_sneaker.color')
+    size = serializers.CharField(source='size.__str__')
     image_url = serializers.CharField(source='model_sneaker.image_url')
     class Meta:
         model = SKU
-        fields = ['id', 'name', 'price', 'brand', 'image_url']
+        fields = ['id', 'brand', 'name', 'color', 'size', 'image_url', 'price']
