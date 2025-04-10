@@ -6,8 +6,8 @@ class Size(models.Model):
     size_centimeters = models.IntegerField(default=0)
 
     def __str__(self):
-        return f'Rus: {self.size_rus} - {self.size_centimeters} сm'
+        return f'{self.size_centimeters} сm'
 
     class Meta:
-        verbose_name = 'Размер'
+        verbose_name = 'размер'
         verbose_name_plural= 'Размеры'

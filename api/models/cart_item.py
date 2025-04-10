@@ -10,3 +10,7 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f'{self.user} - {self.sku} ({self.quantity})'
+
+    class Meta:
+        verbose_name = 'товар в корзину'
+        verbose_name_plural= 'Корзины пользователей'

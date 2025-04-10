@@ -11,3 +11,7 @@ class SKU(models.Model):
 
     def __str__(self):
         return f'{self.model_sneaker} - размер: {self.size}'
+
+    class Meta:
+        verbose_name = 'товар'
+        verbose_name_plural= 'Все товары'

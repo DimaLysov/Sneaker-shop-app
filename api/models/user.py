@@ -9,3 +9,7 @@ class User(models.Model):
 
     def __str__(self):
         return f'{self.user_name} {self.user_surname}'
+
+    class Meta:
+        verbose_name = 'пользователя'
+        verbose_name_plural= 'Пользователи'
