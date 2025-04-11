@@ -145,6 +145,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+DISALLOWED_MODEL_ADMIN_LOOKUPS = []
+
 # Media files
 MEDIA_URL = '/media/'  # URL для доступа к медиафайлам
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Директория для сохранения медиафайлов

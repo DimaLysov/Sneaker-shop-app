@@ -46,7 +46,7 @@ class CartItemViewSet(mixins.CreateModelMixin,
     def update_quantity(self, request, pk=None):
         cart_item = self.get_object()
 
-        serializer = CartItemUpdateSerializer(data=request.data)
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.update(cart_item, serializer.validated_data)
 
