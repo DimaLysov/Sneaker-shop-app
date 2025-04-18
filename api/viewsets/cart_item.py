@@ -5,7 +5,8 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from api.models import CartItem
-from api.serializers.cart_item import CartItemSerializer, CartItemUpdateSerializer
+from api.serializers.cart_item import CartItemSerializer, CartItemUpdateSerializer, CartItemGetSerializer
+
 
 @extend_schema(tags=['CartItem'])
 @extend_schema_view(
@@ -34,7 +35,7 @@ class CartItemViewSet(mixins.CreateModelMixin,
 
     @extend_schema(summary='Получить все товары пользователя по ID',
                    description='Необходимо указать id пользователя')
-    @action(detail=False, methods=['get'], url_path='by-user/(?P<user_id>[^/.]+)')
+    @action(detail=False, methods=['get'], url_path='by-user/(?P<user_id>[^/.]+)', serializer_class=CartItemGetSerializer)
     def get_items_by_user(self, request, user_id=None):
         cart_items = self.queryset.filter(user=user_id)
         serializer = self.get_serializer(cart_items, many=True)

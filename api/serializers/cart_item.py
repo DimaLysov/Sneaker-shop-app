@@ -9,6 +9,18 @@ class CartItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'sku', 'quantity']
 
 
+class CartItemGetSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(source='sku.model_sneaker.name')
+    brand = serializers.CharField(source='sku.model_sneaker.brand.name')
+    color = serializers.CharField(source='sku.model_sneaker.color')
+    image_url = serializers.ImageField(source='sku.model_sneaker.image_url')
+    size = serializers.CharField(source='sku.size.__str__')
+    price = serializers.IntegerField(source='sku.price')
+    class Meta:
+        model = CartItem
+        fields = ['id', 'user', 'name', 'brand', 'image_url', 'color', 'size', 'price', 'quantity']
+
+
 class CartItemUpdateSerializer(serializers.ModelSerializer):
     quantity = serializers.IntegerField()
     class Meta:
