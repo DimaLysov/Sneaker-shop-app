@@ -6,7 +6,7 @@ class User(models.Model):
     tg_username = models.CharField(max_length=32, unique=True)
 
     def __str__(self):
-        return f"TG User {self.tg_id} ({self.tg_username})"
+        return f"{self.tg_username}"
 
     class Meta:
         verbose_name = 'пользователя'

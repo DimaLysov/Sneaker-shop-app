@@ -8,14 +8,6 @@ from api.models import User
 from api.serializers.user import UserSerializer
 
 @extend_schema(tags=['User'])
-# @extend_schema_view(
-#     list=extend_schema(
-#         summary="Получить все размеры",
-#     ),
-#     retrieve=extend_schema(
-#         summary="Получить конкретный размер по его id",
-#     ),
-# )
 class UserViewSet(ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()

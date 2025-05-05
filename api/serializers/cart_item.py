@@ -18,7 +18,7 @@ class CartItemGetSerializer(serializers.ModelSerializer):
     price = serializers.IntegerField(source='sku.price')
     class Meta:
         model = CartItem
-        fields = ['id', 'user', 'name', 'brand', 'image_url', 'color', 'size', 'price', 'quantity']
+        fields = ['id', 'user', 'sku', 'name', 'brand', 'image_url', 'color', 'size', 'price', 'quantity']
 
 
 class CartItemUpdateSerializer(serializers.ModelSerializer):
